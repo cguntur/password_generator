@@ -6,13 +6,15 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+    //call the generatePassword function when the button is clicked
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+    passwordText.value = password;
 
 }
 
+//geratarePassword function
 function generatePassword(){
     var passwordLength = getPasswordLength();
     console.log("Password Length 1: " + passwordLength);
@@ -70,18 +72,34 @@ function generatePassword(){
     console.log("New Pwd: " + pass);
 }
 
+//custom function to get the password length from the user
 function getPasswordLength(){
 
+    //Setting the initial value of the passwordLength variable to 0
     var passwordLength = 0;
+    var isValid = false;
+
+    //Using a do while loop to make sure that the prompt is shown until the passwordLength is between 8 & 128
     do {
         passwordLength = prompt("Please enter the number of characters for the password.");
+        
+        //Checking to make sure the user entered a number
         passwordLength = parseInt(passwordLength);
+        console.log("Password Length: " + passwordLength);
 
-        if(passwordLength < 8 || passwordLength > 128){
+        if(!isNaN(passwordLength) ){
+            isValid = true;
+        }else{
+            window.alert("Password Length needs to be a number. Please try again.");
+        }
+
+        if(passwordLength >= 8 && passwordLength <= 128){
+            isValid = true;
+        }else{
             window.alert("Password length needs to be between 8 and 128 characters long.");
         }
 
-    } while(passwordLength < 8 || passwordLength > 128);
+    } while(!isValid);
     return passwordLength;
 }
 
