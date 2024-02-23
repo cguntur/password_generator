@@ -11,7 +11,6 @@ function writePassword() {
     var passwordText = document.querySelector("#password");
 
     passwordText.value = password;
-
 }
 
 //geratarePassword function
@@ -44,6 +43,8 @@ function generatePassword(){
 
     let str = "";
 
+    //Getting the character types
+
     if(lowerCaseType){
         str += "abcdefghijklmnopqrstuvwxyz";
     }
@@ -60,6 +61,7 @@ function generatePassword(){
         str += "@#$()*!%^&-_~";
     }
  
+    //Generating the password
     for (let i = 1; i <= passwordLength; i++) {
         let char = Math.floor(Math.random()
             * str.length + 1);
@@ -68,8 +70,6 @@ function generatePassword(){
     }
 
     return password;
-
-    console.log("New Pwd: " + pass);
 }
 
 //custom function to get the password length from the user
@@ -93,6 +93,7 @@ function getPasswordLength(){
             window.alert("Password Length needs to be a number. Please try again.");
         }
 
+        //Checking to make sure the password is between 8 and 128 characters
         if(passwordLength >= 8 && passwordLength <= 128){
             isValid = true;
         }else{
@@ -103,6 +104,7 @@ function getPasswordLength(){
     return passwordLength;
 }
 
+//Get the character types required from the user
 function getCharacterType(characterType){
     var type = confirm("Would you like to include " + characterType + " characters in your password?");
     return type;
