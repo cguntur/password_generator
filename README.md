@@ -10,3 +10,5 @@
 
 ## [View the website here](https://cguntur.github.io/password_generator/)
 
+<img src="./images/pwd_generator.png" alt="Password Generator Site Screenshot" width="400"/>
+
