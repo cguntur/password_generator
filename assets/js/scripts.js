@@ -16,6 +16,7 @@ function writePassword() {
 //geratarePassword function
 function generatePassword(){
     var passwordLength = getPasswordLength();
+    
     console.log("Password Length 1: " + passwordLength);
 
     do{
@@ -98,6 +99,7 @@ function getPasswordLength(){
             isValid = true;
         }else{
             window.alert("Password length needs to be between 8 and 128 characters long.");
+            isValid = false;
         }
 
     } while(!isValid);
